@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="data.js" defer></script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showDashboard(dashboard) {
+            document.querySelectorAll('.dashboard').forEach(function (el) {
+                el.style.display = 'none';
+            });
+            document.getElementById(dashboard).style.display = 'block';
+        }
+    </script>
+    <script src="data.js" defer></script>
+</head>
+<body onload="showDashboard('overview')">
+    <header class="header">
+        <div class="header-left">
+            <img src="waynexus.png" alt="WayNexus Logo" class="logo">
+        </div>
+        <div class="header-right">
+            <img src="msg.png" alt="Messages" class="icon">
+            <img src="man.png" alt="User" class="icon">
+            <span>John Doe</span>
+        </div>
+    </header>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li class="nav-item active" onclick="showDashboard('overview')">
+                        <img src="Overview.png" alt="Overview" class="nav-icon">
+                        <span class="nav-text">Overview</span>
+                    </li>
+                    <li class="section-title">Crowd Analytics</li>
+                    <li class="nav-item" onclick="showDashboard('people-counting')">
+                        <img src="People Counting.png" alt="People Counting" class="nav-icon">
+                        People counting
+                    </li>
+                    <li class="nav-item" onclick="showDashboard('visitors-trajectories')">
+                        <img src="Visitors' Trajectories.png" alt="Visitors' Trajectories" class="nav-icon">
+                        Visitors' Trajectories
+                    </li>
+                    <li class="nav-item" onclick="showDashboard('average-duration')">
+                        <img src="Average Duration.png" alt="Average Duration" class="nav-icon">
+                        Average Duration
+                    </li>
+                    <li class="nav-item" onclick="showDashboard('dwell-time')">
+                        <img src="Dwell Time.png" alt="Dwell Time" class="nav-icon">
+                        Dwell Time
+                    </li>
+                    <li class="section-title">Sales</li>
+                    <li class="nav-item" onclick="showDashboard('sales-tracking')">
+                        <img src="Sales Tracking.png" alt="Sales Tracking" class="nav-icon">
+                        Sales Tracking
+                    </li>
+                    <li class="nav-item" onclick="showDashboard('sales-journey')">
+                        <img src="Sales Journey.png" alt="Sales Journey" class="nav-icon">
+                        Sales Journey
+                    </li>
+                    <li class="section-title">Advanced Analytics</li>
+                    <li class="nav-item" onclick="showDashboard('store-space-planning')">
+                        <img src="Store space planning.png" alt="Store space planning" class="nav-icon">
+                        Store space planning
+                    </li>
+                    <li class="nav-item" onclick="showDashboard('product-simulator')">
+                        <img src="Product simulator.png" alt="Product simulator" class="nav-icon">
+                        Product simulator
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <!-- Overview Dashboard -->
+            <div id="overview" class="dashboard">
+                <h2>Overview of crowd analytics: Hauptbahnhof, Munich</h2>
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <h3>Total No Of Visitors</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Average Dwell Time</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Units Sold</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Revenue Generated</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Product specific Dwell Time</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Sales Growth by Product</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Total Visited Area</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Total Visitors Today / Yesterday</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Average Dwell Time Today / Yesterday</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Total Units Sold Today / Yesterday</h3>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Total Revenue Today / Yesterday</h3>
+                    </div>
+                </div>
+            </div>
+<!-- People Counting Dashboard -->
+<div id="people-counting" class="dashboard">
+    <h2>Crowd analytics &gt; People counting</h2>
+    <div class="people-counting-container">
+        <div class="summary-boxes">
+            <div class="summary-box" id="polygon-a-count">Polygon A</div>
+            <div class="summary-box" id="polygon-b-count">Polygon B</div>
+        </div>
+        <div class="people-counting-content">
+            <div class="pie-chart">
+                <h3>Total Visited Area</h3>
+                <canvas id="people-counting-chart" class="pie-chart-placeholder"></canvas>
+            </div>
+            <div class="floor-plan">
+                <h3>Plan</h3>
+                <img src="plan.png" alt="Floor Plan" class="floor-plan-placeholder">
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+            <!-- Average Duration Dashboard -->
+            <div id="average-duration" class="dashboard">
+                <h2>Crowd analytics &gt; Average Duration</h2>
+                <div class="average-duration-container">
+                    <div class="summary-boxes">
+                        <div class="summary-box">Polygon A</div>
+                        <div class="summary-box">Polygon B</div>
+                    </div>
+                    <div class="average-duration-content">
+                        <div class="pie-chart">
+                            <h3>Total Visited Area</h3>
+                            <div class="pie-chart-placeholder"></div>
+                        </div>
+                        <div class="floor-plan">
+                            <h3>Plan</h3>
+                            <div class="floor-plan-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Other dashboards can be added here similarly -->
+        </main>
+    </div>
+</body>
+</html>
